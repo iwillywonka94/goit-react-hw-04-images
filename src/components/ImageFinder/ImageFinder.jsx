@@ -32,11 +32,11 @@ function ImageFinder() {
             if (!q) {
                 return
             };
-            setImages({
-                ...images,
+            setImages(prevState => ({
+                ...prevState,
                 loading: true,
                 error: null,
-            });
+            }));
             try {
                 const items = await searchImages(q, page);
                 setImages(prevState => ({
